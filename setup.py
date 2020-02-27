@@ -1,11 +1,12 @@
 import setuptools
+import versioneer
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
     name="kim-query",
-    version="1.0.0",
+    version=versioneer.get_version(),
     description=(
         "Helper routines for querying the OpenKIM Repository"
     ),
@@ -27,4 +28,5 @@ setuptools.setup(
         "Topic :: Scientific/Engineering",
         'Intended Audience :: Science/Research',
     ],
+    cmdclass=versioneer.get_cmdclass()
 )
