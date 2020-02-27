@@ -16,11 +16,15 @@ setuptools.setup(
     packages=setuptools.find_packages(),
     license="CDDL",
     install_requires=["requests"],
+    python_requires='>=2.7',
+    keywords='kim_query',
     classifiers=[
+        'Development Status :: 5 - Production/Stable',
         "License :: OSI Approved :: Common Development and Distribution License 1.0 (CDDL-1.0)",
         "Programming Language :: Python :: 2",
         "Programming Language :: Python :: 3",
         "Operating System :: OS Independent",
-        "Topic :: Scientific/Engineering :: Physics",
+        "Topic :: Scientific/Engineering",
+        'Intended Audience :: Science/Research',
     ],
 )
