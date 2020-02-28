@@ -10,7 +10,8 @@ setuptools.setup(
     description=(
         "Helper routines for querying the OpenKIM Repository"
     ),
-    author=["Daniel S. Karls"],
+    author="Daniel S. Karls",
+    author_email="karl0100@umn.edu",
     url="https://github.com/openkim/kim-query",
     long_description=long_description,
     long_description_content_type="text/markdown",
