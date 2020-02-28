@@ -12,7 +12,7 @@ setuptools.setup(
     ),
     author="Daniel S. Karls",
     author_email="karl0100@umn.edu",
-    url="https://github.com/dskarls/kim-query",
+    url="https://github.com/openkim/kim-query",
     long_description=long_description,
     long_description_content_type="text/markdown",
     packages=setuptools.find_packages(),
