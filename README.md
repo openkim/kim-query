@@ -96,8 +96,8 @@ Helper routines for querying the OpenKIM database hosted at https://query.openki
   perpendicular to the fault plane
 
 - **get\_unstable\_stacking\_fault\_relaxed\_energy\_fcc** Retrieve the relaxed
-  unstable stacking fault (USF) energy of a face-centered monoatomic cubic
-  crystal at zero temperature and a specified pressure.  The USE corresponds to
+  unstable stacking fault energy (USFE) of a face-centered monoatomic cubic
+  crystal at zero temperature and a specified pressure.  The USFE corresponds to
   the energy barrier for rigidly slipping one-half of an infinite crystal
   relative to the other along a <112> direction (fcc partial dislocation
   direction).  Relaxation of the atomic positions is performed perpendicular to

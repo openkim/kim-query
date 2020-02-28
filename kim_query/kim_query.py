@@ -1528,9 +1528,9 @@ def get_unstable_stacking_fault_relaxed_energy_fcc(
     pressure_tol=[0.1],
     method=["relaxation"],
 ):
-    r"""Retrieve the relaxed unstable stacking fault (USF) energy of a
+    r"""Retrieve the relaxed unstable stacking fault energy (USFE) of a
     face-centered monoatomic cubic crystal at zero temperature and a specified
-    pressure.  The USE corresponds to the energy barrier for rigidly slipping
+    pressure.  The USFE corresponds to the energy barrier for rigidly slipping
     one-half of an infinite crystal relative to the other along a <112>
     direction (fcc partial dislocation direction).  Relaxation of the atomic
     positions is performed perpendicular to the fault plane.
