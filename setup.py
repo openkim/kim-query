@@ -11,7 +11,7 @@ setuptools.setup(
         "Helper routines for querying the OpenKIM Repository"
     ),
     author=["Daniel S. Karls"],
-    url="https://github.com/openkim/kim-python-utils",
+    url="https://github.com/openkim/kim-query",
     long_description=long_description,
     long_description_content_type="text/markdown",
     packages=setuptools.find_packages(),
