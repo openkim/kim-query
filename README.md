@@ -1,4 +1,5 @@
 # kim-query
+![Python package](https://github.com/openkim/kim-query/workflows/Python%20package/badge.svg?branch=master)
 [![License](https://img.shields.io/badge/license-CDDL--1.0-blue)](LICENSE.CDDL)
 
 Helper routines for querying the OpenKIM database hosted at https://query.openkim.org
