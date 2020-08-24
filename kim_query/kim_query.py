@@ -30,6 +30,13 @@ https://query.openkim.org.
 """
 import requests
 import json
+import platform
+
+# Fetch package version (embedded in request headers)
+from ._version import get_versions
+
+__version__ = get_versions()["version"]
+del get_versions
 
 __author__ = ["Daniel S. Karls"]
 __all__ = [
@@ -65,7 +72,9 @@ def _send_query(params, endpoint):
     if endpoint is not None:
         url = ("/").join((url, endpoint))
 
-    return requests.post(url, data=params).json()
+    headers = {"User-Agent": f"kim-query {__version__} ({platform.platform()})"}
+
+    return requests.post(url, data=params, headers=headers).json()
 
 
 def raw_query(**kwargs):
