@@ -33,6 +33,7 @@ import json
 
 __author__ = ["Daniel S. Karls"]
 __all__ = [
+    "__author__",
     "raw_query",
     "get_available_models",
     "get_test_result",
