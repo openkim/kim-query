@@ -72,7 +72,10 @@ def _send_query(params, endpoint):
     if endpoint is not None:
         url = ("/").join((url, endpoint))
 
-    headers = {"User-Agent": f"kim-query {__version__} ({platform.platform()})"}
+    headers = {
+        "User-Agent": f"kim-query {__version__} (Python "
+        f"{platform.python_version()}; {platform.platform()})"
+    }
 
     return requests.post(url, data=params, headers=headers).json()
 
