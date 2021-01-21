@@ -158,7 +158,7 @@ def raw_query(**kwargs):
 
 
 def get_available_models(species, model_interface=["all"], equality=[False],
-        potential_type=["all"], simulator=["all"]):
+        potential_type=["all"], simulator_name=["all"]):
     r"""Retrieve the latest versions of all models that support a given set of
     atomic species
 
@@ -211,7 +211,7 @@ def get_available_models(species, model_interface=["all"], equality=[False],
         https://openkim.org/doc/schema/naming-potentials/ for a list of all
         current potential types tracked in OpenKIM.  (Default: "all")
 
-    simulator : array of double-quoted strings
+    simulator_name : array of double-quoted strings
         Simulators supported by models that are to be returned.  For KIM
         portable models, all simulators are supported and so if model_interface
         is set to ["mo"], this argument has no effect.  However, if that is not
