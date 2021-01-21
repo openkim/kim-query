@@ -157,7 +157,7 @@ def raw_query(**kwargs):
     return _send_query(kwargs, None)
 
 
-def get_available_models(species, model_type=["all"], exclusive=[False]):
+def get_available_models(species, model_type=["all"], equality=[False]):
     r"""Retrieve the latest versions of all models that support a given set of
     atomic species
 
@@ -176,7 +176,7 @@ def get_available_models(species, model_type=["all"], exclusive=[False]):
       ```
       curl --data-urlencode 'species=["Al","Fe"]' \
            --data-urlencode 'model_type=["sm"]'   \
-           --data-urlencode 'exclusive=[true]'    \
+           --data-urlencode 'equality=[true]'    \
            https://query.openkim.org/api/get_available_models
       ```
 
@@ -192,9 +192,11 @@ def get_available_models(species, model_type=["all"], exclusive=[False]):
         Simulator Models to be returned.  If left unspecified, both Portable
         Models and Simulator Models will be returned.  (Default: "all")
 
-    exclusive : array containing one boolean
-        Whether models returned must support only the species listed (True), or
-        are allowed to support species other than those listed (False).
+    equality : array containing one boolean
+        Whether the species supported by each model returned must be exactly
+        equal to the species listed (True), or are allowed to support species
+        other than those listed (False).  Note that the order of elements in
+        the species list is unimportant.
         (Default: False)
 
     Returns
