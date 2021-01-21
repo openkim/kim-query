@@ -157,7 +157,8 @@ def raw_query(**kwargs):
     return _send_query(kwargs, None)
 
 
-def get_available_models(species, model_interface=["all"], equality=[False]):
+def get_available_models(species, model_interface=["all"], equality=[False],
+        potential_type=["all"]):
     r"""Retrieve the latest versions of all models that support a given set of
     atomic species
 
@@ -200,6 +201,15 @@ def get_available_models(species, model_interface=["all"], equality=[False]):
         other than those listed (False).  Note that the order of elements in
         the species list is unimportant.
         (Default: False)
+
+    potential_type : array of double-quoted strings
+        Potential type of models that are to be returned.  Each model has a
+        single associated potential type, e.g. "eam".  If multiple values are
+        given in this argument, models that match any of them will be returned,
+        e.g. ["meam", "adp"] will require that all models returned either have
+        a potential type of "meam" or "adp".  See
+        https://openkim.org/doc/schema/naming-potentials/ for a list of all
+        current potential types tracked in OpenKIM.  (Default: "all")
 
     Returns
     -------
