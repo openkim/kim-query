@@ -157,7 +157,7 @@ def raw_query(**kwargs):
     return _send_query(kwargs, None)
 
 
-def get_available_models(species, model_type=["all"], equality=[False]):
+def get_available_models(species, model_interface=["all"], equality=[False]):
     r"""Retrieve the latest versions of all models that support a given set of
     atomic species
 
@@ -175,7 +175,7 @@ def get_available_models(species, model_type=["all"], equality=[False]):
 
       ```
       curl --data-urlencode 'species=["Al","Fe"]' \
-           --data-urlencode 'model_type=["sm"]'   \
+           --data-urlencode 'model_interface=["sm"]'   \
            --data-urlencode 'equality=[true]'    \
            https://query.openkim.org/api/get_available_models
       ```
@@ -186,11 +186,13 @@ def get_available_models(species, model_type=["all"], equality=[False]):
         The standard chemical symbol(s) of all atomic species that the models
         returned must support, e.g. "Al".
 
-    model_type : array containing one double-quoted string
-        Type of the models that are to be returned.  Specifying "mo" will
-        cause only Portable Models to be returned, while "sm" will cause only
-        Simulator Models to be returned.  If left unspecified, both Portable
-        Models and Simulator Models will be returned.  (Default: "all")
+    model_interface : array containing one double-quoted string
+        KIM API interface used by the models that are to be returned.
+        Specifying "mo" will cause only Portable Models to be returned (which
+        use the Portable Model Interface), while "sm" will cause only Simulator
+        Models to be returned (which use the Simulator Model Interface).  If
+        left unspecified, both Portable Models and Simulator Models will be
+        returned.  (Default: "all")
 
     equality : array containing one boolean
         Whether the species supported by each model returned must be exactly
