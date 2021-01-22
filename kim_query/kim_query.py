@@ -209,8 +209,8 @@ def get_available_models(species, model_interface=["all"], equality=[False],
         single associated potential type, e.g. "eam".  If multiple values are
         given in this argument, models that match any of them will be returned,
         e.g. ["meam", "adp"] will require that all models returned either have
-        a potential type of "meam" or "adp".  See
-        https://openkim.org/doc/schema/naming-potentials/ for a list of all
+        a potential type of "meam" or "adp".  Matching is case-insensitive.
+        See https://openkim.org/doc/schema/naming-potentials/ for a list of all
         current potential types tracked in OpenKIM.  (Default: "all")
 
     simulator_name : array of double-quoted strings
@@ -219,6 +219,7 @@ def get_available_models(species, model_interface=["all"], equality=[False],
         is set to ["mo"], this argument has no effect.  However, if that is not
         the case, and KIM simulator models are allowed to be returned, their
         corresponding simulator must match one of the entries in this list.
+        Matching is case-insensitive.
         (Default: "all")
 
     Returns
