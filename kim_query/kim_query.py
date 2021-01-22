@@ -169,15 +169,17 @@ def get_available_models(species, model_interface=["all"], equality=[False],
 
       ```
       from kim_query import get_available_models
-      get_available_models(["Al","Fe"], ["sm"], [True])
+      get_available_models(["Si","C"], ["sm"], [True], ["meam"], ["LAMMPS"])
       ```
 
     curl:
 
       ```
-      curl --data-urlencode 'species=["Al","Fe"]' \
-           --data-urlencode 'model_interface=["sm"]'   \
-           --data-urlencode 'equality=[true]'    \
+      curl --data-urlencode 'species=["Si","C"]'        \
+           --data-urlencode 'model_interface=["sm"]'    \
+           --data-urlencode 'equality=[true]'           \
+           --data-urlencode 'potential_type=["meam"]'   \
+           --data-urlencode 'simulator_name=["LAMMPS"]' \
            https://query.openkim.org/api/get_available_models
       ```
 
