@@ -157,8 +157,8 @@ def raw_query(**kwargs):
     return _send_query(kwargs, None)
 
 
-def get_available_models(species, model_interface=["all"], equality=[False],
-        potential_type=["all"], simulator_name=["all"]):
+def get_available_models(species, species_logic=["and"], model_interface=["any"],
+        potential_type=["any"], simulator_name=["any"]):
     r"""Retrieve the latest versions of all models that support a given set of
     atomic species
 
@@ -169,15 +169,15 @@ def get_available_models(species, model_interface=["all"], equality=[False],
 
       ```
       from kim_query import get_available_models
-      get_available_models(["Si","C"], ["sm"], [True], ["meam"], ["LAMMPS"])
+      get_available_models(["Si","C"], ["and"], ["sm"], ["meam"], ["LAMMPS"])
       ```
 
     curl:
 
       ```
       curl --data-urlencode 'species=["Si","C"]'        \
+           --data-urlencode 'species_logic=["and"]'     \
            --data-urlencode 'model_interface=["sm"]'    \
-           --data-urlencode 'equality=[true]'           \
            --data-urlencode 'potential_type=["meam"]'   \
            --data-urlencode 'simulator_name=["LAMMPS"]' \
            https://query.openkim.org/api/get_available_models
@@ -187,7 +187,13 @@ def get_available_models(species, model_interface=["all"], equality=[False],
     ----------
     species : array of double-quoted strings
         The standard chemical symbol(s) of all atomic species that the models
-        returned must support, e.g. "Al".
+        returned must support, e.g. "Al".  Case-sensitive.
+
+    species_logic : array containing one double-quoted string
+        Whether the species supported by each model returned must be exactly
+        equal to the species listed ("exact"), or are allowed to support
+        species other than those listed ("and").  Note that the order of
+        elements in the species list is unimportant.  (Default: "and")
 
     model_interface : array containing one double-quoted string
         KIM API interface used by the models that are to be returned.
@@ -195,23 +201,17 @@ def get_available_models(species, model_interface=["all"], equality=[False],
         use the Portable Model Interface), while "sm" will cause only Simulator
         Models to be returned (which use the Simulator Model Interface).  If
         left unspecified, both Portable Models and Simulator Models will be
-        returned.  (Default: "all")
-
-    equality : array containing one boolean
-        Whether the species supported by each model returned must be exactly
-        equal to the species listed (True), or are allowed to support species
-        other than those listed (False).  Note that the order of elements in
-        the species list is unimportant.
-        (Default: False)
+        returned.  (Default: "any")
 
     potential_type : array of double-quoted strings
         Potential type of models that are to be returned.  Each model has a
         single associated potential type, e.g. "eam".  If multiple values are
         given in this argument, models that match any of them will be returned,
         e.g. ["meam", "adp"] will require that all models returned either have
-        a potential type of "meam" or "adp".  Matching is case-insensitive.
-        See https://openkim.org/doc/schema/naming-potentials/ for a list of all
-        current potential types tracked in OpenKIM.  (Default: "all")
+        a potential type of "meam" or "adp".  The terms provided are
+        case-insensitive.  See https://openkim.org/doc/schema/naming-potentials
+        for a list of all current potential types tracked in OpenKIM.
+        (Default: "any")
 
     simulator_name : array of double-quoted strings
         Simulators supported by models that are to be returned.  For KIM
@@ -219,8 +219,7 @@ def get_available_models(species, model_interface=["all"], equality=[False],
         is set to ["mo"], this argument has no effect.  However, if that is not
         the case, and KIM simulator models are allowed to be returned, their
         corresponding simulator must match one of the entries in this list.
-        Matching is case-insensitive.
-        (Default: "all")
+        The terms provided are case-insensitive.  (Default: "any")
 
     Returns
     -------
