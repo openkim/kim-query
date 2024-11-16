@@ -284,8 +284,13 @@ def get_test_result(test, model, species, prop, keys, units):
         The KIM ID of the model used to compute the test result
 
     species : array of double-quoted strings
-        The standard chemical symbol(s) reported in the 'species' key of the
-        test result.  Each symbol listed, and no others, must be present.
+        The standard chemical symbol(s) reported in the 'stoichiometric-species'
+        or 'species' key of the test result. These should 
+        be the list of unique species in the same order as specified in
+        the crystal prototype designation, if any, and will query over the 
+        'stoichiometric-species' key of those test results. Older Test
+        Results without a 'stoichiometric-species' key match on 'species', and
+        are simply required to contain each element listed and no others.
 
     prop : array containing one double-quoted string
         The name of the property definition reported in the test result
