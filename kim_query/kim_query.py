@@ -306,7 +306,7 @@ def get_test_result(test, model, species, prop, keys, units):
         (case-insensitive) may also be used if standard SI units are desired
         for a given key.  Keys which are intrinsically unitless, i.e. those
         which have 'has-units = False' in their property definition, must have
-        the value 'null' (without quotes) specified.
+        the value 'null' (without quotes) (or 'None' in Python) specified.
 
     Returns
     -------
