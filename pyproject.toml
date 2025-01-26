@@ -1,0 +1,48 @@
+[build-system]
+requires = [ "setuptools", "versioneer[toml]==0.29", "requests" ]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kim-query"
+dependencies = [ "requests" ]
+authors = [
+    { name = "Daniel S. Karls", email = "karl0100umn@gmail.com" },
+    { name = "ilia Nikiforov", email = "nikif002@umn.edu" },
+    { name = "Claire Waters", email = "bwaters@umn.edu" }
+]
+maintainers = [
+    { name = "ilia Nikiforov", email = "nikif002@umn.edu" },
+    { name = "Claire Waters", email = "bwaters@umn.edu" },
+    { name = "Daniel S. Karls", email = "karl0100umn@gmail.com" }
+]
+description = "Helper routines for querying the OpenKIM Repository"
+readme = { file = "README.md", content-type = "text/markdown" }
+requires-python = ">=3.6"
+classifiers = [
+    'Development Status :: 5 - Production/Stable',
+    "License :: OSI Approved :: Common Development and Distribution License 1.0 (CDDL-1.0)",
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering",
+    'Intended Audience :: Science/Research',
+]
+dynamic = [ "version" ]
+keywords = [ "kim-query" , "kim_query", "openkim" ]
+
+[project.urls]
+Homepage = "https://github.com/openkim/kim-query"
+Issues = "https://github.com/openkim/kim-query/issues"
+
+[tool.setuptools.packages.find]
+include = [ "kim_query*" ]
+
+[tool.setuptools.dynamic]
+version = { attr = "kim_query.__version__" }
+
+[tool.versioneer]
+VCS = "git"
+style = "pep440"
+versionfile_source = "kim_query/_version.py"
+versionfile_build = "kim_query/_version.py"
+tag_prefix = "v"
+parentdir_prefix = "kim_query-"
